@@ -1,0 +1,201 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    overflow-x: hidden;
+}
+.main   
+{
+    height: 100vh;
+    width: 100vw;
+} 
+.main .controls
+{
+    /* border: 2px solid red; */
+    position: absolute;
+    /* Setting z-index for displaying our Controls over the SKY otherwise it will hide behind the SKY */
+    z-index: 1;
+    top:10px;
+    left:35.5%;
+    height: 8%;
+    width: 400px;
+    display: grid;
+    place-items: center;
+}
+/* Controls Styling */
+.main #start
+{
+    width: 8rem;
+    padding: 7.5px;
+    font-size: 1.3rem;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+.main #start:hover
+{
+    background-color: rgb(44, 44, 44);
+    color:white;
+}
+.main .Sun
+{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+     /* Setting z-index for displaying our SUN over the SKY otherwise it will hide behind the SKY */
+    z-index: 1;
+    top:29.5%;
+    left:45%;
+}
+.main .Sun #Sun_Image
+{
+    height: 100%;
+    width: 100%;
+}
+.Sun_Animation
+{
+    animation-name: Sun_Rotate;
+    animation-duration: 17s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+/* Sun Rotation Animation */
+@keyframes Sun_Rotate
+{
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+.main .sky
+{
+    height: 60%;
+    width: 1000vw;
+    background-image: url('../Images/Sky.png');
+}
+.Sky_Animation
+{
+    animation: sky 700s linear 0s infinite;
+}
+@keyframes sky {
+    100%
+    {
+        transform: translateX(-500vw);
+    }
+}
+.main .landScape
+{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url('../Images/Landscape.png');
+    background-position: center;
+    background-size: cover; 
+}
+/* .main .landScape #Landscape
+{
+    height: 100%;
+    width: 100%; 
+} */
+.main .landScape .car
+{
+    position: absolute;
+    bottom: 10rem;
+    /* Setting z-index for displaying our car over the Road otherwise it will hide behind the Road */
+    z-index: 1;
+    /* Setting its height and width in pixels because we don't want tires and car body shrink according to device height and width or its parent height and width */
+    height: 150px;
+    width: 310px;
+    left: 10rem;
+}
+.CarShake_Animation
+{
+    animation-name: shakeCar;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+/* Car Body */
+.main .landScape .car #CarBody
+{
+    height: 53%;
+    width: 100%;
+}
+/* Car Shaking Animation which gives the feeling to the user that the car is actually running on the road */
+@keyframes shakeCar
+{
+    0%
+    {
+        transform: translateY(-2.5px);
+    }
+    50%
+    {
+        transform: translateY(2.5px);
+    }
+    100%
+    {
+        transform: translateY(-2.5px);
+    }
+}
+/* Car Right Wheel*/
+.main .landScape .car #RightTire
+{
+    position: absolute;
+    height: 38.5%;
+    right: 1.4rem;
+    top: 2rem;
+}
+/* Car Left Wheel */
+.main .landScape .car #LeftTire
+{
+    position: absolute;
+    height: 38.5%;
+    left: 1.4rem;
+    top: 2rem;
+}
+.CarWheel_Rotation_Animation
+{
+    animation-name: wheelRotate;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+/* Wheel Rotation Animation */
+@keyframes wheelRotate {
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+/* Main Road */
+.main .landScape .Track
+{
+    /* border:2px solid red; */
+    position: absolute;
+    bottom: 0;
+    height: 35%;
+    width: 1000vw;
+    background-image: url('../Images/track.png');
+}
+.Track_Running_Animation
+{
+    animation-name: track;
+    animation-timing-function: linear;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+/* Track(Road) Running Animation */
+@keyframes track {
+    100%
+    {
+        transform: translateX(-500vw);
+    }
+}
